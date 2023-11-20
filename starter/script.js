@@ -90,17 +90,26 @@ var upperCasedCharacters = [
 
 // Function to prompt user for password options
 function getPasswordOptions() {
-
+//create prompt for password lenght must be from 8 to 128
+//prompt lowercase, uppercase, specials and nubers
 }
 
 // Function for getting a random element from an array
 function getRandom(arr) {
-
+  var randomIndex = Math.floor(Math.random() * arr.length);
+  return arr[randomIndex];
 }
+
 
 // Function to generate password with user input
 function generatePassword() {
+// if lowercase concat
+//if uppercase concat
+//if nubers concat
+// is special concat
+// else no selction
 
+//loop to generate password
 }
 
 // Get references to the #generate element
