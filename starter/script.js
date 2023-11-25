@@ -90,8 +90,15 @@ var upperCasedCharacters = [
 
 // Function to prompt user for password options
 function getPasswordOptions() {
-//create prompt for password lenght must be from 8 to 128
-//prompt lowercase, uppercase, specials and nubers
+let length = parseInt(prompt("Enter the length of your password (between 8 and 128 characters."));
+if(isNaN(length)  || length < 8 || length > 128) {
+  return null;
+  }
+}
+
+let includeLower = prompt("Do you want to include lower cases? Y/N");
+if (includeLower !== null){
+  
 }
 
 // Function for getting a random element from an array
