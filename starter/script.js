@@ -90,45 +90,68 @@ var upperCasedCharacters = [
 
 // Function to prompt user for password options
 function getPasswordOptions() {
-let length = parseInt(prompt("Enter the length of your password (between 8 and 128 characters."));
-if(isNaN(length)  || length < 8 || length > 128) {
-  return null;
+  var length = parseInt(prompt("Enter the length of your password (between 8 and 128 characters):"));
+  if (isNaN(length) || length < 8 || length > 128) {
+    alert("Password length must be a number between 8 and 128!");
+    return null; 
   }
 
-let includeLower = confirm("Include lowercase characters?");
-let includeUpper = confirm("Include uppercase characters?");
-let includeNumeric = confirm("Include numeric characters?");
-let includeSpecial = confirm("Include special characters?");
-
-if(!includeLower && !includeUpper && !includeNumeric && !includeSpecial){
-  alert("At least one character type must be selected!");
-  return null;
+  
+  var includeLower = confirm("Include lowercase characters?");
+  var includeUpper = confirm("Include uppercase characters?");
+  var includeNumeric = confirm("Include numeric characters?");
+  var includeSpecial = confirm("Include special characters?");
+  if (!includeLower && !includeUpper && !includeNumeric && !includeSpecial) {
+    alert("At least one character type must be selected!");
+    return null; 
   }
- return {
-  length: length,
-  includeLower: includeLower,
-  includeUpper: includeUpper,
-  includeNumeric: includeNumeric,
-  includeSpecial: includeSpecial
-  }
-
+  return {
+    length: length,
+    includeLower: includeLower,
+    includeUpper: includeUpper,
+    includeNumeric: includeNumeric,
+    includeSpecial: includeSpecial
+  };
 }
-// Function for getting a random element from an array
+// Function for getting a random element from an array from monday lesson
 function getRandom(arr) {
   var randomIndex = Math.floor(Math.random() * arr.length);
   return arr[randomIndex];
 }
 
-
 // Function to generate password with user input
 function generatePassword() {
-// if lowercase concat
-//if uppercase concat
-//if nubers concat
-// is special concat
-// else no selction
+  var options = getPasswordOptions();
 
-//loop to generate password
+  // If options is null return an empty string
+  if (!options) {
+    return '';
+  }
+
+  // Create a pool of characters based on user options - concat
+  var characterPool = [];// new array includes user selection
+  if (options.includeLower) {
+    characterPool = characterPool.concat(lowerCasedCharacters);
+  }
+  if (options.includeUpper) {
+    characterPool = characterPool.concat(upperCasedCharacters);
+  }
+  if (options.includeNumeric) {
+    characterPool = characterPool.concat(numericCharacters);
+  }
+  if (options.includeSpecial) {
+    characterPool = characterPool.concat(specialCharacters);
+  }
+
+  // Generate the password loop
+  var password = '';//new var
+  for (var i = 0; i < options.length; i++) {
+    var randomChar = getRandom(characterPool);//loop
+    password += randomChar;
+  }
+
+  return password;//return
+
 }
 
 // Get references to the #generate element
