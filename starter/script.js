@@ -94,13 +94,25 @@ let length = parseInt(prompt("Enter the length of your password (between 8 and 1
 if(isNaN(length)  || length < 8 || length > 128) {
   return null;
   }
-}
 
-let includeLower = prompt("Do you want to include lower cases? Y/N");
-if (includeLower !== null){
-  
-}
+let includeLower = confirm("Include lowercase characters?");
+let includeUpper = confirm("Include uppercase characters?");
+let includeNumeric = confirm("Include numeric characters?");
+let includeSpecial = confirm("Include special characters?");
 
+if(!includeLower && !includeUpper && !includeNumeric && !includeSpecial){
+  alert("At least one character type must be selected!");
+  return null;
+  }
+ return {
+  length: length,
+  includeLower: includeLower,
+  includeUpper: includeUpper,
+  includeNumeric: includeNumeric,
+  includeSpecial: includeSpecial
+  }
+
+}
 // Function for getting a random element from an array
 function getRandom(arr) {
   var randomIndex = Math.floor(Math.random() * arr.length);
