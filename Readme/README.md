@@ -12,7 +12,7 @@ Firstly I’ve created a function for the password options a user provides. I’
 
 The following image shows the web application's appearance and functionality:
 
-![password generator demo](./assets/05-javascript-challenge-demo.png)
+![password generator demo](../assets/05-javascript-challenge-demo.png)
 
 To use this application follow steps below:
 * Click button "Generate Password",
